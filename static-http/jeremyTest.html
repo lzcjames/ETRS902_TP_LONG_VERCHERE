@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<html>
+<head>
+	<title></title>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js" integrity="sha256-bQmrZe4yPnQrLTY+1gYylfNMBuGfnT/HKsCGX+9Xuqo=" crossorigin="anonymous"></script>
+<script
+			  src="https://code.jquery.com/jquery-3.4.1.slim.js"
+			  integrity="sha256-BTlTdQO9/fascB1drekrDVkaKd9PkwBymMlHOiG+qLI="
+			  crossorigin="anonymous"></script>
+	<ul id="events">
+		
+	</ul>
+</head>
+<body>
+
+
+<script type="text/javascript">
+	var ws = new WebSocket("ws://192.168.141.235:8088/ari/events?api_key=toto:pass1&app=hello&subscribeAll=true");
+
+	ws.onmessage =function(data){
+		
+		message = JSON.parse(data.data);
+		console.log(message);
+		switch(message.type){
+			case "Dial":
+				$('#events').append('<li>'+message.type+' : '+message.dialstatus+' - '+message.state+'</li>');
+				break;
+			default:
+
+				break;
+		}
+		//$('#events').append('<li>'+data.data+'</li>');
+
+	}
+</script>
+</body>
+</html>
+

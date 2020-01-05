@@ -1,0 +1,17 @@
+[
+	{
+		"matricule": "111",
+		"note": 15,
+		"mention": "bien"
+	},
+	{
+		"matricule": "222",
+		"note": 11,
+		"mention": "assez_bien"
+	},
+	{
+		"matricule": "333",
+		"note": 8,
+		"mention": null
+	}
+]
